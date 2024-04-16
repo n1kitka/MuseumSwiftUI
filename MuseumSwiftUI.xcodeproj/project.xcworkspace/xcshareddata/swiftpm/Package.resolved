@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "swifttfidf",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aziyan99/SwiftTfIdf",
+      "state" : {
+        "revision" : "72ef1cd20c105765f5b8d7d3c6e917198ace541b",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "swiftui-cached-async-image",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lorenzofiamingo/swiftui-cached-async-image",
+      "state" : {
+        "revision" : "467a3d17479887943ab917a379e62bbaff60ac8a",
+        "version" : "2.1.1"
+      }
+    }
+  ],
+  "version" : 2
+}
