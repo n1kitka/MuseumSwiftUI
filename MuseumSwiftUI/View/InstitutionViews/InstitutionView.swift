@@ -14,7 +14,7 @@ struct InstitutionsView: View {
     var body: some View {
 //        NavigationView {
             List(viewModel.institutions, id: \.id) { institution in
-                NavigationLink(destination: InstitutionDetailView(viewModel: InstitutionDetailViewModel(institutionId: institution.id))) {
+                NavigationLink(destination: InstitutionDetailView(viewModel: InstitutionDetailViewModel(institutionId: institution.id, userProfileVM: UserProfileVM.shared))) {
                     HStack {
                         CachedAsyncImage(url: URL(string: institution.image), urlCache: .imageCache) { phase in
                             if let image = phase.image {

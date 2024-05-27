@@ -43,7 +43,6 @@ class AllObjectsViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    // Optionally add a method to check if more data can be loaded
     func loadMoreObjects() {
         if canLoadMore {
             fetchAllObjects()

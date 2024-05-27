@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ObjectDetailView: View {
     @ObservedObject var viewModel: ObjectDetailViewModel
-    @State private var showRecommendedObjects = false
     
     var body: some View {
         ScrollView {
@@ -35,38 +34,16 @@ struct ObjectDetailView: View {
                 Text(viewModel.materials)
                     .padding(.horizontal)
                 
-                Text("Top Words from Object Description")
+                Text("Схожість: \(viewModel.similarityScore ?? 100, specifier: "%.2f")")
                     .font(.title3)
                     .padding(.horizontal)
                     .padding(.top, 10)
-                
-                ForEach(viewModel.topWords, id: \.self) { word in
-                    Text(word)
-                        .padding()
-                }
-                
             }
+        }
+        .onAppear {
+            viewModel.fetchObjectDetail()
         }
         .navigationTitle("Про об'єкт")
-        .onAppear {
-            viewModel.fetchDetailsAndRecommend()
-        }
-    }
-}
-
-struct RecommendedObjectsView: View {
-    @ObservedObject var viewModel: ObjectDetailViewModel
-
-    var body: some View {
-        List(viewModel.recommendedObjects, id: \.id) { obj in
-            VStack(alignment: .leading) {
-                Text(obj.object_name)
-                    .font(.headline)
-                Text(obj.object_description)
-                    .font(.subheadline)
-            }
-        }
-        .navigationTitle("Recommended Objects")
     }
 }
 

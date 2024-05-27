@@ -19,6 +19,9 @@
 		D12F29782B95C755009102C7 /* InstitutionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F29772B95C755009102C7 /* InstitutionVM.swift */; };
 		D12F297A2B95C761009102C7 /* InstitutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F29792B95C761009102C7 /* InstitutionView.swift */; };
 		D12F297C2B96056C009102C7 /* InstitutionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F297B2B96056B009102C7 /* InstitutionService.swift */; };
+		D132F0F62BD12C1100741E66 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132F0F52BD12C1100741E66 /* UserProfileView.swift */; };
+		D132F0F82BD12E5B00741E66 /* UserProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132F0F72BD12E5B00741E66 /* UserProfileVM.swift */; };
+		D132F0FB2BD12ECF00741E66 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132F0FA2BD12ECF00741E66 /* UserProfile.swift */; };
 		D164A6442BA9939800447FD8 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164A6432BA9939800447FD8 /* QuizView.swift */; };
 		D171913C2BCE811C00D22D68 /* ObjectsMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D171913B2BCE811C00D22D68 /* ObjectsMainView.swift */; };
 		D171913E2BCE819900D22D68 /* AllObjectsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D171913D2BCE819900D22D68 /* AllObjectsVM.swift */; };
@@ -43,6 +46,8 @@
 		D1C219DA2BBD6A9B004A4393 /* ObjectVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C219D92BBD6A9B004A4393 /* ObjectVM.swift */; };
 		D1C219DC2BBD6ACF004A4393 /* ObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C219DB2BBD6ACF004A4393 /* ObjectView.swift */; };
 		D1C219DE2BBD6AFC004A4393 /* SubcollectionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C219DD2BBD6AFC004A4393 /* SubcollectionVM.swift */; };
+		D1CBDD9B2BE4F0CA004B25AF /* TextProcessingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CBDD9A2BE4F0CA004B25AF /* TextProcessingService.swift */; };
+		D1EE11B62BDF924800A8EB45 /* LLM in Frameworks */ = {isa = PBXBuildFile; productRef = D1EE11B52BDF924800A8EB45 /* LLM */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +63,9 @@
 		D12F29772B95C755009102C7 /* InstitutionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionVM.swift; sourceTree = "<group>"; };
 		D12F29792B95C761009102C7 /* InstitutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionView.swift; sourceTree = "<group>"; };
 		D12F297B2B96056B009102C7 /* InstitutionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionService.swift; sourceTree = "<group>"; };
+		D132F0F52BD12C1100741E66 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		D132F0F72BD12E5B00741E66 /* UserProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVM.swift; sourceTree = "<group>"; };
+		D132F0FA2BD12ECF00741E66 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		D164A6432BA9939800447FD8 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		D171913B2BCE811C00D22D68 /* ObjectsMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectsMainView.swift; sourceTree = "<group>"; };
 		D171913D2BCE819900D22D68 /* AllObjectsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllObjectsVM.swift; sourceTree = "<group>"; };
@@ -81,6 +89,7 @@
 		D1C219D92BBD6A9B004A4393 /* ObjectVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectVM.swift; sourceTree = "<group>"; };
 		D1C219DB2BBD6ACF004A4393 /* ObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectView.swift; sourceTree = "<group>"; };
 		D1C219DD2BBD6AFC004A4393 /* SubcollectionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcollectionVM.swift; sourceTree = "<group>"; };
+		D1CBDD9A2BE4F0CA004B25AF /* TextProcessingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProcessingService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1EE11B62BDF924800A8EB45 /* LLM in Frameworks */,
 				D17D1ED12BC927D100DA6E41 /* SwiftTfIdf in Frameworks */,
 				D11FE4122BBEB3A100283518 /* CachedAsyncImage in Frameworks */,
 			);
@@ -131,6 +141,7 @@
 			children = (
 				D164A6432BA9939800447FD8 /* QuizView.swift */,
 				D17D1ED22BC96B1900DA6E41 /* StopWordsManager.swift */,
+				D1CBDD9A2BE4F0CA004B25AF /* TextProcessingService.swift */,
 			);
 			path = MLReccomendation;
 			sourceTree = "<group>";
@@ -182,6 +193,7 @@
 				D1C219D72BBD69E5004A4393 /* Object.swift */,
 				D11FE4032BBE96BA00283518 /* DetailObject.swift */,
 				D1A083A42B9CD43600EC088E /* MapPin.swift */,
+				D132F0FA2BD12ECF00741E66 /* UserProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +212,7 @@
 				D171913F2BCE81D900D22D68 /* InstitutionVM's */,
 				D17191412BCE81F700D22D68 /* CollectionVM */,
 				D17191402BCE81EF00D22D68 /* ObjectVM */,
+				D132F0F92BD12E6A00741E66 /* UserProfileVM */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -214,6 +227,14 @@
 				D11FE40F2BBEA41E00283518 /* MLReccomendation */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D132F0F92BD12E6A00741E66 /* UserProfileVM */ = {
+			isa = PBXGroup;
+			children = (
+				D132F0F72BD12E5B00741E66 /* UserProfileVM.swift */,
+			);
+			path = UserProfileVM;
 			sourceTree = "<group>";
 		};
 		D171913F2BCE81D900D22D68 /* InstitutionVM's */ = {
@@ -251,6 +272,7 @@
 			children = (
 				D12F29672B95C731009102C7 /* MuseumSwiftUIApp.swift */,
 				D19512972BCD754A009C73A2 /* MainMenuView.swift */,
+				D132F0F52BD12C1100741E66 /* UserProfileView.swift */,
 				D19512952BCD7519009C73A2 /* CollectionsMainView.swift */,
 				D171913B2BCE811C00D22D68 /* ObjectsMainView.swift */,
 			);
@@ -276,6 +298,7 @@
 			packageProductDependencies = (
 				D11FE4112BBEB3A100283518 /* CachedAsyncImage */,
 				D17D1ED02BC927D100DA6E41 /* SwiftTfIdf */,
+				D1EE11B52BDF924800A8EB45 /* LLM */,
 			);
 			productName = MuseumSwiftUI;
 			productReference = D12F29642B95C731009102C7 /* MuseumSwiftUI.app */;
@@ -308,6 +331,7 @@
 			packageReferences = (
 				D11FE4102BBEB3A100283518 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 				D17D1ECF2BC927D100DA6E41 /* XCRemoteSwiftPackageReference "SwiftTfIdf" */,
+				D1EE11B42BDF924800A8EB45 /* XCRemoteSwiftPackageReference "LLM" */,
 			);
 			productRefGroup = D12F29652B95C731009102C7 /* Products */;
 			projectDirPath = "";
@@ -337,11 +361,13 @@
 			files = (
 				D19512982BCD754A009C73A2 /* MainMenuView.swift in Sources */,
 				D1A083952B97938D00EC088E /* InstitutionDetailView.swift in Sources */,
+				D132F0FB2BD12ECF00741E66 /* UserProfile.swift in Sources */,
 				D12F297C2B96056C009102C7 /* InstitutionService.swift in Sources */,
 				D171913E2BCE819900D22D68 /* AllObjectsVM.swift in Sources */,
 				D1A083A52B9CD43600EC088E /* MapPin.swift in Sources */,
 				D1C219DA2BBD6A9B004A4393 /* ObjectVM.swift in Sources */,
 				D12F29762B95C742009102C7 /* Institution.swift in Sources */,
+				D132F0F62BD12C1100741E66 /* UserProfileView.swift in Sources */,
 				D1C219DE2BBD6AFC004A4393 /* SubcollectionVM.swift in Sources */,
 				D1A0839D2B9B0E8900EC088E /* InstitutionMapView.swift in Sources */,
 				D171913C2BCE811C00D22D68 /* ObjectsMainView.swift in Sources */,
@@ -349,6 +375,7 @@
 				D12F297A2B95C761009102C7 /* InstitutionView.swift in Sources */,
 				D1A0839B2B9A4E9A00EC088E /* InstitutionMapVM.swift in Sources */,
 				D19512962BCD7519009C73A2 /* CollectionsMainView.swift in Sources */,
+				D132F0F82BD12E5B00741E66 /* UserProfileVM.swift in Sources */,
 				D1A0839F2B9B188F00EC088E /* CollectionView.swift in Sources */,
 				D1A083992B979BE900EC088E /* InstitutionDetailVM.swift in Sources */,
 				D1C219D82BBD69E5004A4393 /* Object.swift in Sources */,
@@ -366,6 +393,7 @@
 				D11FE4062BBE972500283518 /* ObjectDetailVM.swift in Sources */,
 				D1A083972B9799C800EC088E /* DetailInstitution.swift in Sources */,
 				D164A6442BA9939800447FD8 /* QuizView.swift in Sources */,
+				D1CBDD9B2BE4F0CA004B25AF /* TextProcessingService.swift in Sources */,
 				D1BED4EB2BA0C88D0058F6E3 /* CollectionDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,6 +618,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		D1EE11B42BDF924800A8EB45 /* XCRemoteSwiftPackageReference "LLM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/eastriverlee/LLM.swift/";
+			requirement = {
+				branch = pinned;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -602,6 +638,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D17D1ECF2BC927D100DA6E41 /* XCRemoteSwiftPackageReference "SwiftTfIdf" */;
 			productName = SwiftTfIdf;
+		};
+		D1EE11B52BDF924800A8EB45 /* LLM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1EE11B42BDF924800A8EB45 /* XCRemoteSwiftPackageReference "LLM" */;
+			productName = LLM;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

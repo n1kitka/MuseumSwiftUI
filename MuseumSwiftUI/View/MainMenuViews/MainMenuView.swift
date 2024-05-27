@@ -23,7 +23,16 @@ struct MainMenuView: View {
                         .clipped()
 
                     VStack(spacing: 20) {
-                        NavigationLink(destination: InstitutionsView()) {
+                        NavigationLink(destination: UserProfileView()) {
+                            Text("Профіль")
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(Color.white.opacity(0.75))
+                                .foregroundColor(.black)
+                                .cornerRadius(10)
+                        }
+                        
+                        NavigationLink(destination: QuizView()) {
                             Text("Музеї")
                                 .padding()
                                 .frame(maxWidth: .infinity)
@@ -32,7 +41,7 @@ struct MainMenuView: View {
                                 .cornerRadius(10)
                         }
 
-                        NavigationLink(destination: CollectionsMainView()) {
+                        NavigationLink(destination: CollectionsSelectionView()) {
                             Text("Зібрання")
                                 .padding()
                                 .frame(maxWidth: .infinity)
@@ -52,19 +61,19 @@ struct MainMenuView: View {
                     }
                     .padding()
 
-                    DisclosureGroup("About the App", isExpanded: $showAppDescription) {
+                    DisclosureGroup("Про додаток", isExpanded: $showAppDescription) {
                         Text("Description of the app goes here.")
                             .padding()
                     }
                     .padding()
 
-                    DisclosureGroup("About Kyiv", isExpanded: $showCityDescription) {
+                    DisclosureGroup("Про Київ", isExpanded: $showCityDescription) {
                         Text("Description of Kyiv goes here.")
                             .padding()
                     }
                     .padding()
 
-                    DisclosureGroup("Facts and Numbers", isExpanded: $showFactsAndNumbers) {
+                    DisclosureGroup("Факти та числа", isExpanded: $showFactsAndNumbers) {
                         Text("Interesting facts and numbers about Kyiv go here.")
                             .padding()
                     }

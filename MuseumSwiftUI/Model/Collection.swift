@@ -11,9 +11,10 @@ struct Collection: Codable, Identifiable {
     let id: Int
     let name: String
     var image: String
-    let description: String
+    var description: String
     let numberOfObjects: Int
     let subcollections: [Subcollection]?
+    var isFavorite: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case id = "collection_id"

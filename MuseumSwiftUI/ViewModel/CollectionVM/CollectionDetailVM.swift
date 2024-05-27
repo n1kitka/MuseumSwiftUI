@@ -7,7 +7,7 @@
 
 import Foundation
 import Combine
-
+import SwiftTfIdf
 
 class CollectionDetailViewModel: ObservableObject {
     @Published var collection: Collection?
@@ -43,10 +43,19 @@ class CollectionDetailViewModel: ObservableObject {
                     self?.collection = nil
                 }
             }, receiveValue: { [weak self] collection in
+                var collection = collection
+                collection.isFavorite = UserDefaults.standard.bool(forKey: "favorite_\(collection.id)")
                 self?.collection = collection
                 self?.prepareDisplayData(from: collection)
             })
             .store(in: &cancellables)
+    }
+    
+    func toggleFavorite() {
+        guard let collection = collection else { return }
+        let newFavoriteState = !collection.isFavorite
+        UserDefaults.standard.set(newFavoriteState, forKey: "favorite_\(collectionId)")
+        self.collection?.isFavorite = newFavoriteState
     }
 
     private func prepareDisplayData(from collection: Collection) {
@@ -54,9 +63,7 @@ class CollectionDetailViewModel: ObservableObject {
         self.description = collection.description
         self.image = collection.image.contains("http://") || collection.image.contains("https://") ? collection.image : "https://assets.museum-digital.org/ua-kyiv/" + collection.image
         self.numberOfObjects = collection.numberOfObjects
-        // Map each subcollection to a new one if needed with a corrected image URL
         self.subcollections = collection.subcollections?.map { subcollection -> Subcollection in
-            // Create a new subcollection with the corrected image URL
             var correctedSubcollection = subcollection
             correctedSubcollection.image = formatImageUrl(subcollection.image)
             return correctedSubcollection
@@ -70,4 +77,7 @@ class CollectionDetailViewModel: ObservableObject {
             return "https://assets.museum-digital.org/ua-kyiv/" + imageUrl
         }
     }
+    
+    
 }
+

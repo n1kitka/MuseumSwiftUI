@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftTfIdf
 
 class InstitutionDetailViewModel: ObservableObject {
     @Published var detail: DetailInstitution?
@@ -16,19 +17,24 @@ class InstitutionDetailViewModel: ObservableObject {
     @Published var description = ""
     @Published var openingHoursDescription: String = ""
     @Published var collections: [Collection] = []
-    
+    @Published var similarityScore: Double?
+    @Published var topKeywords: [String] = []
+
     private var cancellables = Set<AnyCancellable>()
     private let institutionService: InstitutionServiceProtocol
     private let institutionId: Int
+    private var userProfileVM: UserProfileVM
+    private let stopWordsManager = StopWordsManager()
     private let weekDays = ["Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота", "Неділя"]
 
-    init(institutionId: Int, institutionService: InstitutionServiceProtocol = InstitutionService()) {
+    init(institutionId: Int, institutionService: InstitutionServiceProtocol = InstitutionService(), userProfileVM: UserProfileVM) {
         self.institutionId = institutionId
         self.institutionService = institutionService
-        fetchInstitutionDetail()
+        self.userProfileVM = userProfileVM
+//        fetchInstitutionDetail()
     }
 
-    private func fetchInstitutionDetail() {
+    func fetchInstitutionDetail() {
         institutionService.fetchInstitutionDetail(institutionId: institutionId)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
@@ -58,6 +64,9 @@ class InstitutionDetailViewModel: ObservableObject {
                 self?.detail = modifiedDetail
                 self?.prepareDisplayData(from: detail)
                 self?.collections = Array(modifiedDetail.collectionsDictionary.values).sorted {$0.name < $1.name}
+                if let description = self?.description {
+                    self?.processDescriptionWithTfIdf(description)
+                }
             })
             .store(in: &cancellables)
     }
@@ -79,7 +88,31 @@ class InstitutionDetailViewModel: ObservableObject {
             self.openingHoursDescription = "Будь ласка, уточніть актуальні години роботи у працівників музею"
         }
     }
+
+    private func processDescriptionWithTfIdf(_ text: String) {
+        let textLength = text.count
+        var objectTopN: Int = 5
+        if textLength < 100 {
+            objectTopN = 3
+        } else if textLength < 1000 {
+            objectTopN = 5
+        } else {
+            objectTopN = 10
+        }
+        
+        let termFrequencies = TextProcessingService.shared.calculateTopKeywords(from: text, topN: objectTopN)
+        topKeywords = TextProcessingService.shared.selectTopNKeywords(keywords: termFrequencies, count: objectTopN)
+
+        let userKeywords = userProfileVM.userProfile.interests.reduce(into: [String: Double]()) { (dict, interest) in
+            dict[interest] = 1.0
+        }
+        
+        similarityScore = TextProcessingService.shared.calculateCosineSimilarity(between: termFrequencies, and: userKeywords)
+        print("Cosine Similarity for institution \(name): \(similarityScore ?? 0)")
+    }
+
 }
+
 
 
 

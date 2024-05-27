@@ -41,24 +41,6 @@ class InstitutionService: InstitutionServiceProtocol {
             .eraseToAnyPublisher()
     }
     
-    func fetchAllObjects(page: Int = 1) -> AnyPublisher<[MuseumObject], Error> {
-        let itemsPerPage = 24
-        let startwert = (page - 1) * itemsPerPage
-        let urlString = "https://kyiv.ua.museum-digital.org/json/objects?section=results_list&mode=grid&startwert=\(startwert)"
-        
-        guard let url = URL(string: urlString) else {
-            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
-        }
-        
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map(\.data)
-            .decode(type: [MuseumObject].self, decoder: JSONDecoder())
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
-    }
-
-
-    
     func fetchInstitutionDetail(institutionId: Int) -> AnyPublisher<DetailInstitution, Error> {
         let urlString = "https://kyiv.ua.museum-digital.org/json/institution/\(institutionId)"
         guard let url = URL(string: urlString) else {
@@ -95,6 +77,22 @@ class InstitutionService: InstitutionServiceProtocol {
             fatalError("Invalid URL")
         }
 
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: [MuseumObject].self, decoder: JSONDecoder())
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func fetchAllObjects(page: Int = 1) -> AnyPublisher<[MuseumObject], Error> {
+        let itemsPerPage = 24
+        let startwert = (page - 1) * itemsPerPage
+        let urlString = "https://kyiv.ua.museum-digital.org/json/objects?section=results_list&mode=grid&startwert=\(startwert)"
+        
+        guard let url = URL(string: urlString) else {
+            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+        }
+        
         return URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: [MuseumObject].self, decoder: JSONDecoder())

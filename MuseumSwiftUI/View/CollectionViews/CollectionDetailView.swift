@@ -24,8 +24,7 @@ struct CollectionDetailView: View {
                             .padding(.trailing, 5)
                             .padding(.bottom, 20)
                     } else if phase.error != nil {
-                        Image(systemName: "photo")
-                            .imageScale(.large)
+                        EmptyView()
                     } else {
                         ProgressView()
                     }
@@ -39,6 +38,16 @@ struct CollectionDetailView: View {
                     
                 }
                 .padding(.horizontal)
+                
+                Button(action: {
+                    viewModel.toggleFavorite()
+                }) {
+                    Image(systemName: viewModel.collection?.isFavorite ?? false ? "star.fill" : "star")
+                        .foregroundColor(viewModel.collection?.isFavorite ?? false ? .yellow : .gray)
+                }
+                .buttonStyle(PlainButtonStyle())
+                .imageScale(.large)
+                .padding()
                 
                 Text("Про колекцію")
                     .font(.title3)
@@ -74,8 +83,7 @@ struct CollectionDetailView: View {
                                         .frame(width: 50, height: 50)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                 } else if phase.error != nil {
-                                    Image(systemName: "photo")
-                                        .imageScale(.large)
+                                    EmptyView()
                                 } else {
                                     ProgressView()
                                 }

@@ -30,7 +30,6 @@ class ObjectViewModel: ObservableObject {
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
-                    // If the API's behavior changes, adjust this logic accordingly
                     break
                 case .failure(let error):
                     print("Error fetching objects: \(error)")

@@ -29,7 +29,7 @@ struct ObjectsMainView: View {
                             EmptyView()
                         }
                     }
-                    NavigationLink(destination: ObjectDetailView(viewModel: ObjectDetailViewModel(objectId: object.id))) {
+                    NavigationLink(destination: ObjectDetailView(viewModel: ObjectDetailViewModel(objectId: object.id, userProfileVM: UserProfileVM.shared))) {
                         Text(object.objekt_name)
                     }
                 }

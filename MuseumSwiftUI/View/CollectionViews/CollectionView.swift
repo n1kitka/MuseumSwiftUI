@@ -23,8 +23,7 @@ struct CollectionsView: View {
                                 .frame(width: 50, height: 50)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                         } else if phase.error != nil {
-                            Image(systemName: "photo")
-                                .frame(width: 50, height: 50)
+                            EmptyView()
                         } else {
                             ProgressView()
                         }

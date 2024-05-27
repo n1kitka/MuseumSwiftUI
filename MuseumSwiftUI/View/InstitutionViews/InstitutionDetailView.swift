@@ -65,6 +65,11 @@ struct InstitutionDetailView: View {
                     Text(viewModel.description)
                         .padding(.horizontal)
                     
+                    Text("Схожість: \((viewModel.similarityScore ?? 100) * 100, specifier: "%.2f")%")
+                        .font(.title3)
+                        .padding(.horizontal)
+                        .padding(.top, 10)
+                    
                     Text("Зручності та послуги")
                         .font(.title3)
                         .padding(.horizontal)
@@ -102,6 +107,9 @@ struct InstitutionDetailView: View {
             }
         }
         .navigationTitle("Про музей")
+        .onAppear {
+            viewModel.fetchInstitutionDetail()
+        }
     }
 }
 

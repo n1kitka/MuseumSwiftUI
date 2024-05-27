@@ -10,11 +10,17 @@ import Combine
 
 class AllInstitutionsViewModel: ObservableObject {
     @Published var allCollections: [DetailInstitution] = []
+    @Published var similarityScore: Double?
+    @Published var topKeywords: [String] = []
+    
     private var cancellables = Set<AnyCancellable>()
     private let institutionService: InstitutionServiceProtocol
+    private var userProfileVM: UserProfileVM
+    private let stopWordsManager = StopWordsManager()
 
-    init(institutionService: InstitutionServiceProtocol = InstitutionService()) {
+    init(institutionService: InstitutionServiceProtocol = InstitutionService(), userProfileVM: UserProfileVM) {
         self.institutionService = institutionService
+        self.userProfileVM = userProfileVM
         fetchAllCollections()
     }
 
@@ -52,10 +58,35 @@ class AllInstitutionsViewModel: ObservableObject {
             if !collection.image.contains("http://") && !collection.image.contains("https://") {
                 modifiedCollection.image = collection.image.hasPrefix("data/ua-kyiv/") ? alternateBaseURL + collection.image : baseURL + collection.image
             }
+            self.processDescriptionWithTfIdf(collection.description)
+            let isFavorite = self.similarityScore! > 0.2
+            UserDefaults.standard.set(isFavorite, forKey: "favorite_\(collection.id)")
             return modifiedCollection
         }
 
         return modifiedDetail
+    }
+    
+    private func processDescriptionWithTfIdf(_ text: String) {
+        let textLength = text.count
+        var objectTopN: Int = 5
+        if textLength < 100 {
+            objectTopN = 3
+        } else if textLength < 500 {
+            objectTopN = 5
+        } else {
+            objectTopN = 10
+        }
+        
+        let termFrequencies = TextProcessingService.shared.calculateTopKeywords(from: text, topN: objectTopN)
+        topKeywords = TextProcessingService.shared.selectTopNKeywords(keywords: termFrequencies, count: objectTopN)
+        print("TOPKEYWORDS \(topKeywords)")
+        let userKeywords = userProfileVM.userProfile.interests.reduce(into: [String: Double]()) { (dict, interest) in
+            dict[interest] = 1.0
+        }
+        
+        similarityScore = TextProcessingService.shared.calculateCosineSimilarity(between: termFrequencies, and: userKeywords)
+        print("Cosine Similarity for collection: \(similarityScore ?? 0)")
     }
 }
 
