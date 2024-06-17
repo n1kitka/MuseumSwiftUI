@@ -7,5 +7,5 @@
 ##### В додатку я використовую архітектуру MVVM.
 
 ### Інтерфейс додатку:
-![Simulator Screenshot - iPhone 15 - 2024-06-17 at 11 43 07](https://github.com/n1kitka/MuseumSwiftUI/assets/98713485/bc995452-9927-445a-83f7-58c788204ddf)
+<img width="240" alt="appFunctionalityScreen" src=https://github.com/n1kitka/MuseumSwiftUI/assets/98713485/bc995452-9927-445a-83f7-58c788204ddf>
 
