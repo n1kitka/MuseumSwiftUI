@@ -7,5 +7,29 @@
 ##### В додатку я використовую архітектуру MVVM.
 
 ### Інтерфейс додатку:
-<img width="240" alt="appFunctionalityScreen" src=https://github.com/n1kitka/MuseumSwiftUI/assets/98713485/bc995452-9927-445a-83f7-58c788204ddf>
+<img width="240" alt="mainMenu" src=https://github.com/n1kitka/MuseumSwiftUI/assets/98713485/bc995452-9927-445a-83f7-58c788204ddf>
+
+### Профіль користувача:
+<img width="240" alt="userProfile" src=https://github.com/n1kitka/MuseumSwiftUI/assets/98713485/609c9792-1a74-4143-afef-646a6172f017>
+
+### На рисунку нижче відображено назву, опис, матеріали та косинусну схожість експонату, округлену до 0.09.
+<img width="240" alt="objectPage" src="https://github.com/n1kitka/MuseumSwiftUI/assets/98713485/66327882-c2c7-4f8b-946e-a5344bb05499">
+
+### Також на основі обчислення косинусної схожості, якщо її значення перевищує 0.2, колекція переміщується з “Всі” в “Обрані”
+<img width="240" alt="image" src="https://github.com/n1kitka/MuseumSwiftUI/assets/98713485/fd86b312-09b1-41c6-aec3-8bc53176950e">
+<img width="240" alt="image" src="https://github.com/n1kitka/MuseumSwiftUI/assets/98713485/a6c3d5d3-fbb0-4750-abf1-1b110f4a71ac">
+<img width="240" alt="image" src="https://github.com/n1kitka/MuseumSwiftUI/assets/98713485/db67aa7d-8bfa-4b62-823c-c6c5bb11dcdb">
+
+### У контексті рекомендацій музеїв, MSE обчислює середню квадратичну похибку між відповідями користувача на опитування та характеристиками кожного музею. Музей з найнижчим значенням MSE є найбільш відповідним для користувача, оскільки його профіль найближче відповідає уподобанням користувача.
+<img width="240" alt="image" src="https://github.com/n1kitka/MuseumSwiftUI/assets/98713485/b176347a-7323-46d5-bb5d-4181fd306e6c">
+
+### На рисунку нижче демонструється «Астрономічний музей Київського національного університету імені Тараса Шевченка», який був рекомендований після заповнення опитування і по натисненню на кнопку «Отримати рекомендацію»
+<img width="240" alt="image" src=https://github.com/n1kitka/MuseumSwiftUI/assets/98713485/e56798d4-ae7d-47d5-aaee-dbeed0e42d00>
+
+
+
+
+
+
+
 
